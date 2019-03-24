@@ -8,6 +8,7 @@ public class TestPizza {
         pizza.setTopping1(Topping.EXTRA_CHEESE);
         pizza.setTopping2(Topping.CHILLI);
 
+        System.out.println(pizza.calculateCost());
         System.out.println(pizza.returnInfo());
     }
 

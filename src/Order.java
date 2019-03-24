@@ -33,6 +33,13 @@ public class Order {
         pizzas.add(newPizza);
     }
 
+    public void setPizzaCrust(int index, Crust newCrust) {
+        pizzas.get(index).setCrust(newCrust);
+    }
+    public Crust getPizzaCrust(int index) {
+        return pizzas.get(index).getCrust();
+    }
 
+    public void setPizzaSize(int index, Crust
 
 }
