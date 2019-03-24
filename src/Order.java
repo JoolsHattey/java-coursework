@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Order {
 
-    ArrayList<Pizza> pizzas;
+    private ArrayList<Pizza> pizzas;
 
     public Order() {
 

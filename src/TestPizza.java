@@ -1,4 +1,4 @@
-public class Main {
+public class TestPizza {
 
     public static void main(String[] args){
         Pizza pizza = new Pizza();
@@ -10,4 +10,5 @@ public class Main {
 
         System.out.println(pizza.returnInfo());
     }
+
 }
