@@ -1,6 +1,6 @@
 public enum Topping {
 
-    NONE(0.00),
+    NONE(0.00){},
     OLIVES(0.08),
     EXTRA_CHEESE(0.02),
     CHILLI(0.06),

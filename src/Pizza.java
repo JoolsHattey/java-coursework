@@ -9,20 +9,26 @@ public class Pizza {
 
     }
 
+    public double calculateCost() {
+        double total, base;
+        base = getSize().getCost() + getCrust().getCost();
+        total = base + getTopping1TotalCost() + getTopping2TotalCost() + getSauce().getCost();
+        return total;
+    }
+
     public String returnInfo() {
-        String info = "Total Cost: "  +
-                format(size.name(), size.getCostAsString());
+        String info = "TOTAL COST: £" + String.valueOf(calculateCost())+
+                    "\n"+formatName(getSize().name()) + " Size: £" + getSize().getCostAsString()+
+                    "\n"+formatName(getCrust().name()) + " Crust: £" + getCrust().getCostAsString()+
+                    "\n"+
+                    "\n"+formatName(getTopping1().name()) + " Topping: 5* £" + getTopping1().getCostAsString()+" = "+getTopping1TotalCost()+
+                    "\n"+formatName(getTopping2().name()) + " Topping: 4* £" + getTopping2().getCostAsString()+" = "+getTopping2TotalCost()+
+                    "\n"+formatName(getSauce().name()) + " Sauce: £" + getSauce().getCostAsString();
         return info;
 
     }
 
-
-
-    private String format(String var1, String var2) {
-        return String.format("%s : £%s", capatalise(var1), var2);
-    }
-
-    private String capatalise(String text) {
+    private String formatName(String text) {
         String output = text.substring(0,1) + text.substring(1).toLowerCase();
         return output;
     }
@@ -55,10 +61,18 @@ public class Pizza {
         return this.topping1;
     }
 
+    public double getTopping1TotalCost() {
+        return 5 * getTopping1().getCost();
+    }
+
     public void setTopping2(Topping newTopping2) {
         this.topping2 = newTopping2;
     }
     public Topping getTopping2() {
         return this.topping2;
+    }
+
+    public double getTopping2TotalCost() {
+        return 4 * getTopping2().getCost();
     }
 }
