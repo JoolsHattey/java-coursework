@@ -18,12 +18,12 @@ public class Pizza {
 
     public String returnInfo() {
         String info = "TOTAL COST: £" + String.valueOf(calculateCost())+
-                    "\n"+formatName(getSize().name()) + " Size: £" + getSize().getCostAsString()+
-                    "\n"+formatName(getCrust().name()) + " Crust: £" + getCrust().getCostAsString()+
+                    "\n"+getSize().toString() + ": £" + getSize().getCostAsString()+
+                    "\n"+getCrust().toString() + ": £" + getCrust().getCostAsString()+
                     "\n"+
-                    "\n"+formatName(getTopping1().name()) + " Topping: 5* £" + getTopping1().getCostAsString()+" = "+getTopping1TotalCost()+
-                    "\n"+formatName(getTopping2().name()) + " Topping: 4* £" + getTopping2().getCostAsString()+" = "+getTopping2TotalCost()+
-                    "\n"+formatName(getSauce().name()) + " Sauce: £" + getSauce().getCostAsString();
+                    "\n"+getTopping1().toString() + ": 5* £" + getTopping1().getCostAsString()+" = "+getTopping1TotalCost()+
+                    "\n"+getTopping2().toString() + ": 4* £" + getTopping2().getCostAsString()+" = "+getTopping2TotalCost()+
+                    "\n"+getSauce().toString() + ": £" + getSauce().getCostAsString();
         return info;
 
     }

@@ -1,8 +1,20 @@
 public enum Crust {
 
-    THIN(1.08),
-    DEEP(1.10),
-    STUFFED(2.14);
+    THIN(1.08){
+        public String toString() {
+            return "Thin Crust";
+        }
+    },
+    DEEP(1.10){
+        public String toString() {
+            return "Deep Crust";
+        }
+    },
+    STUFFED(2.14){
+        public String toString() {
+            return "Stuffed Crust";
+        }
+    };
 
     private double cost;
 
