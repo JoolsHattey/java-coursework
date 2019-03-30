@@ -1,53 +1,55 @@
+package JavaCourseworkUP894547;
+
 public enum Topping {
 
     NONE(0.00){
         public String toString() {
-            return "No Sauce";
+            return "No JavaCourseworkUP894547.Sauce";
         }
     },
     OLIVES(0.08){
         public String toString() {
-            return "Olive Topping";
+            return "Olive JavaCourseworkUP894547.Topping";
         }
     },
     EXTRA_CHEESE(0.02){
         public String toString() {
-            return "Extra Cheese Topping";
+            return "Extra Cheese JavaCourseworkUP894547.Topping";
         }
     },
     CHILLI(0.06){
         public String toString() {
-            return "Chilling Topping";
+            return "Chilling JavaCourseworkUP894547.Topping";
         }
     },
     PEPPERONI(0.10){
         public String toString() {
-            return "Pepperoni Topping";
+            return "Pepperoni JavaCourseworkUP894547.Topping";
         }
     },
     MUSHROOM(0.03){
         public String toString() {
-            return "Mushroom Topping";
+            return "Mushroom JavaCourseworkUP894547.Topping";
         }
     },
     ROCKET(0.05){
         public String toString() {
-            return "Rocket Topping";
+            return "Rocket JavaCourseworkUP894547.Topping";
         }
     },
     JALAPENOS(0.20){
         public String toString() {
-            return "Jalapenos Topping";
+            return "Jalapenos JavaCourseworkUP894547.Topping";
         }
     },
     ONION(0.07){
         public String toString() {
-            return "Onion Topping";
+            return "Onion JavaCourseworkUP894547.Topping";
         }
     },
     ANCHOVY(0.09){
         public String toString() {
-            return "Anchovy Topping";
+            return "Anchovy JavaCourseworkUP894547.Topping";
         }
     };
 

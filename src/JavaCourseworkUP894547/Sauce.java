@@ -1,13 +1,15 @@
+package JavaCourseworkUP894547;
+
 public enum Sauce {
 
     TOMATO(0.00){
         public String toString() {
-            return "Tomato Sauce";
+            return "Tomato JavaCourseworkUP894547.Sauce";
         }
     },
     PESTO(0.50){
         public String toString() {
-            return "Pesto Sauce";
+            return "Pesto JavaCourseworkUP894547.Sauce";
         }
     };
 

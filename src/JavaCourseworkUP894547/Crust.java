@@ -1,18 +1,20 @@
+package JavaCourseworkUP894547;
+
 public enum Crust {
 
     THIN(1.08){
         public String toString() {
-            return "Thin Crust";
+            return "Thin JavaCourseworkUP894547.Crust";
         }
     },
     DEEP(1.10){
         public String toString() {
-            return "Deep Crust";
+            return "Deep JavaCourseworkUP894547.Crust";
         }
     },
     STUFFED(2.14){
         public String toString() {
-            return "Stuffed Crust";
+            return "Stuffed JavaCourseworkUP894547.Crust";
         }
     };
 

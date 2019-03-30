@@ -1,3 +1,5 @@
+package JavaCourseworkUP894547;
+
 public class Pizza {
 
     private int id;
