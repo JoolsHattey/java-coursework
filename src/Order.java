@@ -3,9 +3,10 @@ import java.util.ArrayList;
 public class Order {
 
     private ArrayList<Pizza> pizzas;
+    private int selectedPizza;
 
     public Order() {
-
+        pizzas = new ArrayList<Pizza>();
     }
 
     public String returnInfo() {
@@ -33,51 +34,57 @@ public class Order {
         pizzas.add(newPizza);
     }
 
-    public void deletePizza(int id) {
-        this.pizzas.remove(id);
+    public void selectPizza(int id) {
+        this.selectedPizza = id;
     }
 
-    public void editPizza(int id) {
-
+    public void deletePizza() {
+        this.pizzas.remove(getSelectedPizza());
     }
+
+
 
     public ArrayList<Pizza> getPizzas() {
         return this.pizzas;
     }
 
-    public void setPizzaCrust(int id, Crust newCrust) {
-        pizzas.get(id).setCrust(newCrust);
-    }
-    public Crust getPizzaCrust(int id) {
-        return pizzas.get(id).getCrust();
+    public int getSelectedPizza() {
+        return this.selectedPizza;
     }
 
-    public void setPizzaSize(int id, Size newSize) {
-        pizzas.get(id).setSize(newSize);
+    public void setPizzaCrust(Crust newCrust) {
+        pizzas.get(getSelectedPizza()).setCrust(newCrust);
     }
-    public Size getPizzaSize(int id) {
-        return pizzas.get(id).getSize();
-    }
-    
-    public void getPizzaSauce(int id, Sauce newSauce) {
-        pizzas.get(id).setSauce(newSauce);
-    }
-    public Sauce getPizzaSauce(int id) {
-        return pizzas.get(id).getSauce();
-    }
-    
-    public void setPizzaTopping1(int id, Topping newTopping) {
-        pizzas.get(id).setTopping1(newTopping);
-    }
-    public Topping getPizzaTopping1(int id) {
-        return pizzas.get(id).getTopping1();
+    public Crust getPizzaCrust() {
+        return pizzas.get(getSelectedPizza()).getCrust();
     }
 
-    public void setPizzaTopping2(int id, Topping newTopping) {
-        pizzas.get(id).setTopping2(newTopping);
+    public void setPizzaSize(Size newSize) {
+        pizzas.get(getSelectedPizza()).setSize(newSize);
     }
-    public Topping getPizzaTopping2(int id) {
-        return pizzas.get(id).getTopping2();
+    public Size getPizzaSize() {
+        return pizzas.get(getSelectedPizza()).getSize();
+    }
+    
+    public void setPizzaSauce(, Sauce newSauce) {
+        pizzas.get(getSelectedPizza()).setSauce(newSauce);
+    }
+    public Sauce getPizzaSauce() {
+        return pizzas.get(getSelectedPizza()).getSauce();
+    }
+    
+    public void setPizzaTopping1(, Topping newTopping) {
+        pizzas.get(getSelectedPizza()).setTopping1(newTopping);
+    }
+    public Topping getPizzaTopping1() {
+        return pizzas.get(getSelectedPizza()).getTopping1();
+    }
+
+    public void setPizzaTopping2(, Topping newTopping) {
+        pizzas.get(getSelectedPizza()).setTopping2(newTopping);
+    }
+    public Topping getPizzaTopping2() {
+        return pizzas.get(getSelectedPizza()).getTopping2();
     }
 
 }
