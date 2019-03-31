@@ -68,21 +68,21 @@ public class Order {
         return pizzas.get(getSelectedPizza()).getSize();
     }
     
-    public void setPizzaSauce(, Sauce newSauce) {
+    public void setPizzaSauce(Sauce newSauce) {
         pizzas.get(getSelectedPizza()).setSauce(newSauce);
     }
     public Sauce getPizzaSauce() {
         return pizzas.get(getSelectedPizza()).getSauce();
     }
     
-    public void setPizzaTopping1(, Topping newTopping) {
+    public void setPizzaTopping1(Topping newTopping) {
         pizzas.get(getSelectedPizza()).setTopping1(newTopping);
     }
     public Topping getPizzaTopping1() {
         return pizzas.get(getSelectedPizza()).getTopping1();
     }
 
-    public void setPizzaTopping2(, Topping newTopping) {
+    public void setPizzaTopping2(Topping newTopping) {
         pizzas.get(getSelectedPizza()).setTopping2(newTopping);
     }
     public Topping getPizzaTopping2() {
