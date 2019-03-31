@@ -16,6 +16,7 @@ public class TestPizza {
         System.out.println(pizza1.returnInfo());
 
         Pizza pizza2 = new Pizza(1);
+        
         pizza2.setSize(Size.LARGE);
         pizza2.setCrust(Crust.STUFFED);
         pizza2.setSauce(Sauce.TOMATO);

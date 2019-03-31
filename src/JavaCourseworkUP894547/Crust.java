@@ -4,17 +4,17 @@ public enum Crust {
 
     THIN(1.08){
         public String toString() {
-            return "Thin JavaCourseworkUP894547.Crust";
+            return "Thin";
         }
     },
     DEEP(1.10){
         public String toString() {
-            return "Deep JavaCourseworkUP894547.Crust";
+            return "Deep";
         }
     },
     STUFFED(2.14){
         public String toString() {
-            return "Stuffed JavaCourseworkUP894547.Crust";
+            return "Stuffed";
         }
     };
 

@@ -4,17 +4,17 @@ public enum Size {
 
     SMALL(9.45){
         public String toString() {
-            return "Small JavaCourseworkUP894547.Size";
+            return "Small";
         }
     },
     MEDIUM(11.87){
         public String toString() {
-            return "Medium JavaCourseworkUP894547.Size";
+            return "Medium";
         }
     },
     LARGE(15.90){
         public String toString() {
-            return "Large JavaCourseworkUP894547.Size";
+            return "Large";
         }
     };
 

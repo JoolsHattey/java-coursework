@@ -4,42 +4,42 @@ public enum Topping {
 
     NONE(0.00){
         public String toString() {
-            return "No JavaCourseworkUP894547.Sauce";
+            return "No";
         }
     },
     OLIVES(0.08){
         public String toString() {
-            return "Olive JavaCourseworkUP894547.Topping";
+            return "Olive";
         }
     },
     EXTRA_CHEESE(0.02){
         public String toString() {
-            return "Extra Cheese JavaCourseworkUP894547.Topping";
+            return "Extra Cheese";
         }
     },
     CHILLI(0.06){
         public String toString() {
-            return "Chilling JavaCourseworkUP894547.Topping";
+            return "Chilli";
         }
     },
     PEPPERONI(0.10){
         public String toString() {
-            return "Pepperoni JavaCourseworkUP894547.Topping";
+            return "Pepperoni";
         }
     },
     MUSHROOM(0.03){
         public String toString() {
-            return "Mushroom JavaCourseworkUP894547.Topping";
+            return "Mushroom";
         }
     },
     ROCKET(0.05){
         public String toString() {
-            return "Rocket JavaCourseworkUP894547.Topping";
+            return "Rocket";
         }
     },
     JALAPENOS(0.20){
         public String toString() {
-            return "Jalapenos JavaCourseworkUP894547.Topping";
+            return "Jalapenos";
         }
     },
     ONION(0.07){

@@ -14,9 +14,13 @@ public class Order {
     public String returnInfo() {
         String output = "";
         for(Pizza pizza: pizzas) {
-            output += pizza.returnInfo();
+            output += pizza.returnInfo()+"\n"+"\n";
         }
         return output;
+    }
+    
+    public String returnSpecificInfo() {
+        return pizzas.get(getSelectedPizza()).returnInfo();
     }
 
     public double returnCost() {

@@ -1,5 +1,7 @@
 package JavaCourseworkUP894547;
 
+import java.text.DecimalFormat;
+
 public class Pizza {
 
     private int id;
@@ -20,7 +22,8 @@ public class Pizza {
     }
 
     public String returnInfo() {
-    return "TOTAL COST: £" + String.valueOf(calculateCost())+
+        DecimalFormat df = new DecimalFormat("###.##");
+        return "TOTAL COST: £" + String.valueOf(calculateCost())+
             "\n"+getSize().toString()+": £"+getSize().getCostAsString()+
             "\n"+getCrust().toString()+": £"+getCrust().getCostAsString()+
             "\n"+"BASE COST: £"+(getSize().getCost()+getCrust().getCost())+

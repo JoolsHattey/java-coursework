@@ -23,7 +23,9 @@ public class TestOrder {
         order.setPizzaSauce(Sauce.TOMATO);
         order.setPizzaTopping1(Topping.PEPPERONI);
         order.setPizzaTopping2(Topping.MUSHROOM);
-
+        
+        
+        System.out.println(order.numPizzas()+" Pizzas in order");
         System.out.println(order.returnInfo());
         System.out.println(order.returnCost());
     }

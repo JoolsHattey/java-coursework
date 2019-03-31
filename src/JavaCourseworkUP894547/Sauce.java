@@ -4,12 +4,12 @@ public enum Sauce {
 
     TOMATO(0.00){
         public String toString() {
-            return "Tomato JavaCourseworkUP894547.Sauce";
+            return "Tomato";
         }
     },
     PESTO(0.50){
         public String toString() {
-            return "Pesto JavaCourseworkUP894547.Sauce";
+            return "Pesto";
         }
     };
 

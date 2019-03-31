@@ -10,12 +10,19 @@ package JavaCourseworkUP894547;
  * @author jools
  */
 public class OrderForm extends javax.swing.JFrame {
+    
+    private Order order;
 
     /**
      * Creates new form OrderForm
      */
     public OrderForm() {
         initComponents();
+        order = new Order();
+    }
+    
+    public Order getOrder() {
+        return this.order;
     }
 
     /**
@@ -38,6 +45,11 @@ public class OrderForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("New Pizza");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Edit/Delete Pizza");
 
@@ -100,6 +112,12 @@ public class OrderForm extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        NewPizzaForm pizzaForm = new NewPizzaForm();
+        pizzaForm.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
