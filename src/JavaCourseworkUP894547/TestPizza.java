@@ -4,7 +4,7 @@ public class TestPizza {
 
     public static void main(String[] args){
 
-        Pizza pizza1 = new Pizza(0);
+        Pizza pizza1 = new Pizza();
         
         System.out.println(pizza1.calculateCost());
         System.out.println(pizza1.returnInfo());
@@ -18,7 +18,7 @@ public class TestPizza {
         System.out.println(pizza1.calculateCost());
         System.out.println(pizza1.returnInfo());
 
-        Pizza pizza2 = new Pizza(1);
+        Pizza pizza2 = new Pizza();
         
         pizza2.setSize(Size.LARGE);
         pizza2.setCrust(Crust.STUFFED);

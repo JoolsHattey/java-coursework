@@ -4,22 +4,12 @@ import java.text.DecimalFormat;
 
 public class Pizza {
 
-    private int id;
     private Size size;
     private Crust crust;
     private Sauce sauce;
     private Topping topping1, topping2;
     
     public Pizza() {
-        this.size = Size.DEFAULT;
-        this.crust = Crust.DEFAULT;
-        this.sauce = Sauce.DEFAULT;
-        this.topping1 = Topping.NONE;
-        this.topping2 = Topping.NONE;
-    }
-
-    public Pizza(int newId) {
-        this.id = newId;
         this.size = Size.DEFAULT;
         this.crust = Crust.DEFAULT;
         this.sauce = Sauce.DEFAULT;
@@ -43,10 +33,6 @@ public class Pizza {
             "\n"+getTopping1().toString()+ ": 5* £"+String.format("%.2f = %.2f",getTopping1().getCost(), getTopping1TotalCost())+
             "\n"+getTopping2().toString()+ ": 4* £"+String.format("%.2f = %.2f",getTopping2().getCost(), getTopping2TotalCost())+
             "\n"+getSauce().toString()+ ": £" +String.format("%.2f",getSauce().getCost());
-    }
-
-    public int getId() {
-        return this.id;
     }
 
     public void setSize(Size newSize) {

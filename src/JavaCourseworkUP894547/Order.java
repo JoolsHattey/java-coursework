@@ -23,7 +23,11 @@ public class Order {
         }
     }
     
-    public Pizza getPizza(int id) {
+    public Pizza getPizza(int index) {
+        return this.pizzas.get(index);
+    }
+    
+    /*public Pizza getPizza(int id) {
         Pizza output = null;
         for(Pizza pizza : pizzas) {
             if(pizza.getId() == id) {
@@ -31,7 +35,7 @@ public class Order {
             }
         }
         return output;
-    }
+    }*/
     
     public String returnSpecificInfo() {
         return this.pizzas.get(getSelectedPizza()).returnInfo();
@@ -50,7 +54,7 @@ public class Order {
     }
 
     public void createPizza() {
-        Pizza newPizza = new Pizza(getPizzas().size());
+        Pizza newPizza = new Pizza();
         this.pizzas.add(newPizza);
     }
     

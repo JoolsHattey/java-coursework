@@ -64,6 +64,11 @@ public class OrderForm extends javax.swing.JFrame {
         });
 
         modifyPizzaButton.setText("Edit/Delete Pizza");
+        modifyPizzaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyPizzaButtonActionPerformed(evt);
+            }
+        });
 
         orderSummaryTextArea.setColumns(20);
         orderSummaryTextArea.setRows(5);
@@ -135,6 +140,14 @@ public class OrderForm extends javax.swing.JFrame {
         //pizzaForm.setVisible(true);
         //pizzaForm.setOrder(getOrder());
     }//GEN-LAST:event_newPizzaButtonActionPerformed
+
+    private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed
+        ModifyPizzaDialog modifyForm = new ModifyPizzaDialog(this, true);
+        modifyForm.setPizza(getOrder().getPizza(0));
+        modifyForm.setVisible(true);
+        
+        
+    }//GEN-LAST:event_modifyPizzaButtonActionPerformed
 
     /**
      * @param args the command line arguments
