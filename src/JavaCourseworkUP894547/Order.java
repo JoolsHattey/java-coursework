@@ -13,10 +13,14 @@ public class Order {
 
     public String returnInfo() {
         String output = "";
-        for(Pizza pizza: pizzas) {
-            output += pizza.returnInfo()+"\n"+"\n";
+        if (pizzas.isEmpty()) {
+            return "No Pizzas";
+        } else {
+            for(Pizza pizza: pizzas) {
+                output += pizza.returnInfo()+"\n"+"\n";
+            }
+            return output;
         }
-        return output;
     }
     
     public Pizza getPizza(int id) {

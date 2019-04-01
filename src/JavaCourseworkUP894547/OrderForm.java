@@ -5,6 +5,8 @@
  */
 package JavaCourseworkUP894547;
 
+import java.awt.Dialog.ModalityType;
+
 /**
  *
  * @author jools
@@ -18,7 +20,8 @@ public class OrderForm extends javax.swing.JFrame {
      */
     public OrderForm() {
         initComponents();
-        //createNewOrder();
+        order = new Order();
+        update();
     }
     
     //private void createNewOrder() {
@@ -28,6 +31,10 @@ public class OrderForm extends javax.swing.JFrame {
     
     public Order getOrder() {
         return this.order;
+    }
+    
+    private void update() {
+        orderSummaryTextArea.setText(order.returnInfo());
     }
 
     /**
@@ -63,8 +70,6 @@ public class OrderForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(orderSummaryTextArea);
 
         totalCostLabel.setText("Total Order Cost");
-
-        totalCostField.setText("jTextField1");
 
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +126,12 @@ public class OrderForm extends javax.swing.JFrame {
 
     private void newPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPizzaButtonActionPerformed
         // New pizza button
-        NewPizzaForm pizzaForm = new NewPizzaForm(this.);
+        NewJDialog pizzaform1 = new NewJDialog(this, true);
+        pizzaform1.setVisible(true);
+        
+        order.addPizza(pizzaform1.getPizza());
+        update();
+        //NewPizzaForm pizzaForm = new NewPizzaForm();
         //pizzaForm.setVisible(true);
         //pizzaForm.setOrder(getOrder());
     }//GEN-LAST:event_newPizzaButtonActionPerformed
