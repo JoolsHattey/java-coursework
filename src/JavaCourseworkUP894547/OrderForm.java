@@ -21,7 +21,7 @@ public class OrderForm extends javax.swing.JFrame {
     public OrderForm() {
         initComponents();
         order = new Order();
-        update();
+        update(); 
     }
     
     //private void createNewOrder() {
@@ -134,11 +134,10 @@ public class OrderForm extends javax.swing.JFrame {
         NewPizzaDialog pizzaform1 = new NewPizzaDialog(this, true);
         pizzaform1.setVisible(true);
         
-        order.addPizza(pizzaform1.getPizza());
+        if(pizzaform1.getKeep()){
+            order.addPizza(pizzaform1.getPizza());
+        }
         update();
-        //NewPizzaForm pizzaForm = new NewPizzaForm();
-        //pizzaForm.setVisible(true);
-        //pizzaForm.setOrder(getOrder());
     }//GEN-LAST:event_newPizzaButtonActionPerformed
 
     private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed

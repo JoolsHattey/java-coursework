@@ -25,14 +25,13 @@ public class Pizza {
     }
 
     public String returnInfo() {
-        DecimalFormat df = new DecimalFormat("###.##");
         return "TOTAL COST: £" + String.format("%.2f",calculateCost())+
-            "\n"+getSize().toString()+": £"+String.format("%.2f",getSize().getCost())+
-            "\n"+getCrust().toString()+": £"+String.format("%.2f",getCrust().getCost())+
-            "\n"+"BASE COST: £"+String.format("%.2f",(getSize().getCost()+getCrust().getCost()))+
-            "\n"+getTopping1().toString()+ ": 5* £"+String.format("%.2f = %.2f",getTopping1().getCost(), getTopping1TotalCost())+
-            "\n"+getTopping2().toString()+ ": 4* £"+String.format("%.2f = %.2f",getTopping2().getCost(), getTopping2TotalCost())+
-            "\n"+getSauce().toString()+ ": £" +String.format("%.2f",getSauce().getCost());
+            "\n"+String.format("%s: £%.2f",getSize().toString(),getSize().getCost())+
+            "\n"+String.format("%s: £%.2f",getCrust().toString(),getCrust().getCost())+
+            "\n"+String.format("BASE COST: £%.2f",(getSize().getCost()+getCrust().getCost()))+
+            "\n"+String.format("%s: 5* £%.2f = %.2f",getTopping1().toString(),getTopping1().getCost(), getTopping1TotalCost())+
+            "\n"+String.format("%s: 5* £%.2f = %.2f",getTopping2().toString(),getTopping2().getCost(), getTopping2TotalCost())+
+            "\n"+String.format("%s: £%.2f",getSauce().toString(),getSauce().getCost());
     }
 
     public void setSize(Size newSize) {
