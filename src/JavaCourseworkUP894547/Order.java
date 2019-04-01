@@ -35,8 +35,12 @@ public class Order {
         return this.pizzas.size();
     }
 
-    public void addPizza() {
+    public void createPizza() {
         Pizza newPizza = new Pizza(getPizzas().size());
+        this.pizzas.add(newPizza);
+    }
+    
+    public void addPizza(Pizza newPizza) {
         this.pizzas.add(newPizza);
     }
 
