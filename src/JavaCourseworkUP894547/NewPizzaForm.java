@@ -207,31 +207,27 @@ public class NewPizzaForm extends javax.swing.JFrame {
 
     private void sizeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeComboBoxActionPerformed
         this.pizza.setSize(sizeComboBox.getItemAt(sizeComboBox.getSelectedIndex()));
-        System.out.println(this.pizza.getSize().toString());
+        this.pizzaInfoTextArea.setText(pizza.returnInfo());
     }//GEN-LAST:event_sizeComboBoxActionPerformed
 
     private void crustComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crustComboBoxActionPerformed
-        // TODO add your handling code here:
         this.pizza.setCrust(crustComboBox.getItemAt(crustComboBox.getSelectedIndex()));
-        System.out.println(this.pizza.getCrust().toString());
+        this.pizzaInfoTextArea.setText(pizza.returnInfo());
     }//GEN-LAST:event_crustComboBoxActionPerformed
 
     private void topping1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping1ComboBoxActionPerformed
-        // TODO add your handling code here:
         this.pizza.setTopping1(topping1ComboBox.getItemAt(topping1ComboBox.getSelectedIndex()));
-        System.out.println(this.pizza.getTopping1().toString());
+        this.pizzaInfoTextArea.setText(pizza.returnInfo());
     }//GEN-LAST:event_topping1ComboBoxActionPerformed
 
     private void topping2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping2ComboBoxActionPerformed
-        // TODO add your handling code here:
         this.pizza.setTopping2(topping2ComboBox.getItemAt(topping2ComboBox.getSelectedIndex()));
-        System.out.println(this.pizza.getTopping2().toString());
+        this.pizzaInfoTextArea.setText(pizza.returnInfo());
     }//GEN-LAST:event_topping2ComboBoxActionPerformed
 
     private void sauceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sauceComboBoxActionPerformed
-        // TODO add your handling code here:
         this.pizza.setSauce(sauceComboBox.getItemAt(sauceComboBox.getSelectedIndex()));
-        System.out.println(this.pizza.getSauce().toString());
+        this.pizzaInfoTextArea.setText(pizza.returnInfo());
     }//GEN-LAST:event_sauceComboBoxActionPerformed
 
     /**
