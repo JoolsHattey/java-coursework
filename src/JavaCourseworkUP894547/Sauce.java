@@ -1,7 +1,12 @@
 package JavaCourseworkUP894547;
 
 public enum Sauce {
-
+    
+    DEFAULT(0.00){
+        public String toString() {
+            return "No Sauce Selected";
+        }
+    },
     TOMATO(0.00){
         public String toString() {
             return "Tomato";
