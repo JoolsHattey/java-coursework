@@ -5,6 +5,9 @@ public class TestPizza {
     public static void main(String[] args){
 
         Pizza pizza1 = new Pizza(0);
+        
+        System.out.println(pizza1.calculateCost());
+        System.out.println(pizza1.returnInfo());
 
         pizza1.setSize(Size.MEDIUM);
         pizza1.setCrust(Crust.THIN);

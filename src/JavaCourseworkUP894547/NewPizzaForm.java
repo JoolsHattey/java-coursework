@@ -10,13 +10,30 @@ package JavaCourseworkUP894547;
  * @author jools
  */
 public class NewPizzaForm extends javax.swing.JFrame {
+    
+    private Order order;
+    private Pizza pizza;
 
     /**
      * Creates new form NewPizzaForm
      */
-    public NewPizzaForm() {
+    
+    NewPizzaForm() {
         initComponents();
-        
+        this.pizza = new Pizza();
+    }
+ 
+    public NewPizzaForm(int id) {
+        initComponents();
+        this.pizza = new Pizza(id);
+    }
+    
+    public Order getOrder() {
+        return this.order;
+    }
+    
+    public void setOrder(Order newOrder) {
+        this.order = newOrder;
     }
 
     /**
@@ -33,15 +50,15 @@ public class NewPizzaForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        sizeComboBox = new javax.swing.JComboBox<>();
+        crustComboBox = new javax.swing.JComboBox<>();
+        topping1ComboBox = new javax.swing.JComboBox<>();
+        topping2ComboBox = new javax.swing.JComboBox<>();
+        sauceComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        pizzaInfoTextArea = new javax.swing.JTextArea();
+        addToOrderButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,39 +72,58 @@ public class NewPizzaForm extends javax.swing.JFrame {
 
         jLabel5.setText("Sauce");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(Size.values())
+        sizeComboBox.setModel(new javax.swing.DefaultComboBoxModel(Size.values())
 
         );
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        sizeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                sizeComboBoxActionPerformed(evt);
             }
         });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(Crust.values()));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(Topping.values()));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(Topping.values()));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(Sauce.values()));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("he");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jButton1.setText("ADD TO ORDER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        crustComboBox.setModel(new javax.swing.DefaultComboBoxModel(Crust.values()));
+        crustComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                crustComboBoxActionPerformed(evt);
             }
         });
 
-        jButton2.setText("CANCEL");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        topping1ComboBox.setModel(new javax.swing.DefaultComboBoxModel(Topping.values()));
+        topping1ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                topping1ComboBoxActionPerformed(evt);
+            }
+        });
+
+        topping2ComboBox.setModel(new javax.swing.DefaultComboBoxModel(Topping.values()));
+        topping2ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topping2ComboBoxActionPerformed(evt);
+            }
+        });
+
+        sauceComboBox.setModel(new javax.swing.DefaultComboBoxModel(Sauce.values()));
+        sauceComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sauceComboBoxActionPerformed(evt);
+            }
+        });
+
+        pizzaInfoTextArea.setColumns(20);
+        pizzaInfoTextArea.setRows(5);
+        jScrollPane1.setViewportView(pizzaInfoTextArea);
+
+        addToOrderButton.setText("ADD TO ORDER");
+        addToOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToOrderButtonActionPerformed(evt);
+            }
+        });
+
+        cancelButton.setText("CANCEL");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -107,13 +143,13 @@ public class NewPizzaForm extends javax.swing.JFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(sizeComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(topping1ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(crustComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(addToOrderButton))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -121,8 +157,8 @@ public class NewPizzaForm extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(topping2ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(sauceComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -131,46 +167,72 @@ public class NewPizzaForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sizeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crustComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(topping1ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(topping2ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sauceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(addToOrderButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addToOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToOrderButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_addToOrderButtonActionPerformed
+
+    private void sizeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeComboBoxActionPerformed
+        this.pizza.setSize(sizeComboBox.getItemAt(sizeComboBox.getSelectedIndex()));
+        System.out.println(this.pizza.getSize().toString());
+    }//GEN-LAST:event_sizeComboBoxActionPerformed
+
+    private void crustComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crustComboBoxActionPerformed
+        // TODO add your handling code here:
+        this.pizza.setCrust(crustComboBox.getItemAt(crustComboBox.getSelectedIndex()));
+        System.out.println(this.pizza.getCrust().toString());
+    }//GEN-LAST:event_crustComboBoxActionPerformed
+
+    private void topping1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping1ComboBoxActionPerformed
+        // TODO add your handling code here:
+        this.pizza.setTopping1(topping1ComboBox.getItemAt(topping1ComboBox.getSelectedIndex()));
+        System.out.println(this.pizza.getTopping1().toString());
+    }//GEN-LAST:event_topping1ComboBoxActionPerformed
+
+    private void topping2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping2ComboBoxActionPerformed
+        // TODO add your handling code here:
+        this.pizza.setTopping2(topping2ComboBox.getItemAt(topping2ComboBox.getSelectedIndex()));
+        System.out.println(this.pizza.getTopping2().toString());
+    }//GEN-LAST:event_topping2ComboBoxActionPerformed
+
+    private void sauceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sauceComboBoxActionPerformed
+        // TODO add your handling code here:
+        this.pizza.setSauce(sauceComboBox.getItemAt(sauceComboBox.getSelectedIndex()));
+        System.out.println(this.pizza.getSauce().toString());
+    }//GEN-LAST:event_sauceComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,19 +270,19 @@ public class NewPizzaForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JButton addToOrderButton;
+    private javax.swing.JButton cancelButton;
+    private javax.swing.JComboBox<Crust> crustComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea pizzaInfoTextArea;
+    private javax.swing.JComboBox<Sauce> sauceComboBox;
+    private javax.swing.JComboBox<Size> sizeComboBox;
+    private javax.swing.JComboBox<Topping> topping1ComboBox;
+    private javax.swing.JComboBox<Topping> topping2ComboBox;
     // End of variables declaration//GEN-END:variables
 }

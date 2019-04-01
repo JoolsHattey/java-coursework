@@ -1,7 +1,7 @@
 package JavaCourseworkUP894547;
 
 public enum Topping {
-
+    
     NONE(0.00){
         public String toString() {
             return "No";

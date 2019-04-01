@@ -1,7 +1,12 @@
 package JavaCourseworkUP894547;
 
 public enum Crust {
-
+    
+    DEFAULT(0.00){
+        public String toString() {
+            return "No Crust Selected";
+        }
+    },
     THIN(1.08){
         public String toString() {
             return "Thin";

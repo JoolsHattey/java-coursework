@@ -6,7 +6,7 @@ public class TestOrder {
 
         Order order = new Order();
 
-        order.addPizza();
+        order.createPizza();
         order.selectPizza(0);
 
         order.setPizzaSize(Size.MEDIUM);
@@ -15,7 +15,7 @@ public class TestOrder {
         order.setPizzaTopping1(Topping.EXTRA_CHEESE);
         order.setPizzaTopping2(Topping.CHILLI);
 
-        order.addPizza();
+        order.createPizza();
         order.selectPizza(1);
 
         order.setPizzaSize(Size.LARGE);

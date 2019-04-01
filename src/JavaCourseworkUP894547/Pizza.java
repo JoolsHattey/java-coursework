@@ -9,6 +9,14 @@ public class Pizza {
     private Crust crust;
     private Sauce sauce;
     private Topping topping1, topping2;
+    
+    public Pizza() {
+        this.size = Size.DEFAULT;
+        this.crust = Crust.DEFAULT;
+        this.sauce = Sauce.DEFAULT;
+        this.topping1 = Topping.NONE;
+        this.topping2 = Topping.NONE;
+    }
 
     public Pizza(int newId) {
         this.id = newId;

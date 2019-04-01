@@ -3,7 +3,7 @@ package JavaCourseworkUP894547;
 import java.util.ArrayList;
 
 public class Order {
-
+    
     private ArrayList<Pizza> pizzas;
     private int selectedPizza;
 
@@ -15,6 +15,16 @@ public class Order {
         String output = "";
         for(Pizza pizza: pizzas) {
             output += pizza.returnInfo()+"\n"+"\n";
+        }
+        return output;
+    }
+    
+    public Pizza getPizza(int id) {
+        Pizza output = null;
+        for(Pizza pizza : pizzas) {
+            if(pizza.getId() == id) {
+                output = (getPizzas().get(id));
+            }
         }
         return output;
     }
