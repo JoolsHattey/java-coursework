@@ -12,6 +12,11 @@ public class Pizza {
 
     public Pizza(int newId) {
         this.id = newId;
+        this.size = Size.DEFAULT;
+        this.crust = Crust.DEFAULT;
+        this.sauce = Sauce.DEFAULT;
+        this.topping1 = Topping.NONE;
+        this.topping2 = Topping.NONE;
     }
 
     public double calculateCost() {
