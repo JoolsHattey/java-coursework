@@ -103,6 +103,11 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         jLabel5.setText("Sauce");
 
         sauceComboBox.setModel(new javax.swing.DefaultComboBoxModel(Sauce.values()));
+        sauceComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sauceComboBoxActionPerformed(evt);
+            }
+        });
 
         pizzaInfoTextArea.setColumns(20);
         pizzaInfoTextArea.setRows(5);
@@ -149,14 +154,29 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         jLabel2.setText("Crust");
 
         crustComboBox.setModel(new javax.swing.DefaultComboBoxModel(Crust.values()));
+        crustComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crustComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Topping 1");
 
         topping1ComboBox.setModel(new javax.swing.DefaultComboBoxModel(Topping.values()));
+        topping1ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topping1ComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Topping 2");
 
         topping2ComboBox.setModel(new javax.swing.DefaultComboBoxModel(Topping.values()));
+        topping2ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                topping2ComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,7 +253,8 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void sizeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeComboBoxActionPerformed
-        // TODO add your handling code here:
+        this.pizza.setSize(sizeComboBox.getItemAt(sizeComboBox.getSelectedIndex()));
+        update();
     }//GEN-LAST:event_sizeComboBoxActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
@@ -247,6 +268,26 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         nextOrder();
     }//GEN-LAST:event_nextButtonActionPerformed
+
+    private void crustComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crustComboBoxActionPerformed
+        this.pizza.setCrust(crustComboBox.getItemAt(crustComboBox.getSelectedIndex()));
+        update();
+    }//GEN-LAST:event_crustComboBoxActionPerformed
+
+    private void topping1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping1ComboBoxActionPerformed
+        this.pizza.setTopping1(topping1ComboBox.getItemAt(topping1ComboBox.getSelectedIndex()));
+        update();
+    }//GEN-LAST:event_topping1ComboBoxActionPerformed
+
+    private void topping2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping2ComboBoxActionPerformed
+        this.pizza.setTopping2(topping2ComboBox.getItemAt(topping2ComboBox.getSelectedIndex()));
+        update();
+    }//GEN-LAST:event_topping2ComboBoxActionPerformed
+
+    private void sauceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sauceComboBoxActionPerformed
+        this.pizza.setSauce(sauceComboBox.getItemAt(sauceComboBox.getSelectedIndex()));
+        update();
+    }//GEN-LAST:event_sauceComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
