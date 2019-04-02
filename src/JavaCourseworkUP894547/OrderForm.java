@@ -166,7 +166,7 @@ public class OrderForm extends javax.swing.JFrame {
     }
     
     private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed
-        modifyPizza(0);
+        if(order.getPizzas().size()>0) {modifyPizza(0);}
     }//GEN-LAST:event_modifyPizzaButtonActionPerformed
 
     /**
