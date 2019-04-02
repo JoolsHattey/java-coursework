@@ -5,6 +5,8 @@
  */
 package JavaCourseworkUP894547;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jools
@@ -17,6 +19,7 @@ public class NewPizzaDialog extends javax.swing.JDialog {
     private Order order;
     private Pizza pizza;
     private boolean keep;
+
     public NewPizzaDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -31,6 +34,15 @@ public class NewPizzaDialog extends javax.swing.JDialog {
     }
     public boolean getKeep() {
         return this.keep;
+    }
+    private boolean checkComplete() {
+        if(pizza.getSize() == Size.DEFAULT || 
+           pizza.getCrust() == Crust.DEFAULT || 
+           pizza.getSauce() == Sauce.DEFAULT) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -192,8 +204,16 @@ public class NewPizzaDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addToOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToOrderButtonActionPerformed
-        setKeep(true);
-        dispose();
+        if(checkComplete()) {
+            setKeep(true);
+            dispose();
+        } else {
+            Object[] options = {"OK"};
+            JOptionPane.showOptionDialog(null, "You must select crust size and sauce", "Warning",
+            JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
+            null, options, options[0]);
+        }
+        
     }//GEN-LAST:event_addToOrderButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
