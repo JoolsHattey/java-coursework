@@ -38,6 +38,7 @@ public class OrderForm extends javax.swing.JFrame {
     
     private void update() {
         orderSummaryTextArea.setText(order.returnInfo());
+        totalCostField.setText(String.format("£%.2f", getOrder().returnCost()));
     }
 
     /**
@@ -129,7 +130,7 @@ public class OrderForm extends javax.swing.JFrame {
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
         // TODO add your handling code here:
-        
+        System.exit(0);
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void newPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPizzaButtonActionPerformed
