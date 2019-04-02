@@ -18,7 +18,6 @@ public class NewPizzaDialog extends javax.swing.JDialog {
     /**
      * Creates new form NewJDialog
      */
-    private Order order;
     private Pizza pizza;
     private boolean keep;
 
@@ -85,6 +84,7 @@ public class NewPizzaDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setText("Crust");
 

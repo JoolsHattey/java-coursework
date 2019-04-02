@@ -42,7 +42,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     }
     public void setPizza(Pizza newPizza) {
         this.pizza = newPizza;
-        update();
+        updateUI();
     }
     public Pizza getPizza() {
         return this.pizza;
@@ -73,7 +73,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         setIndex(index);
     }
     
-    public void update() {
+    public void updateUI() {
         sizeComboBox.setSelectedItem(pizza.getSize());
         crustComboBox.setSelectedItem(pizza.getCrust());
         topping1ComboBox.setSelectedItem(pizza.getTopping1());
@@ -85,14 +85,14 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         if(order.getSelectedPizza() < order.getPizzas().size()-1) {
             selectPizza(order.getSelectedPizza()+1);
             setPizza(getOrder().getPizza());
-            update();
+            updateUI();
         }
     }
     private void prevOrder() {
         if(order.getSelectedPizza() > 0) {
             selectPizza(order.getSelectedPizza()-1);
             setPizza(getOrder().getPizza());
-            update();
+            updateUI();
         }
     }
 
@@ -123,6 +123,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         topping2ComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jLabel5.setText("Sauce");
 
@@ -279,7 +280,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
 
     private void sizeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeComboBoxActionPerformed
         this.pizza.setSize(sizeComboBox.getItemAt(sizeComboBox.getSelectedIndex()));
-        update();
+        updateUI();
     }//GEN-LAST:event_sizeComboBoxActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
@@ -298,22 +299,22 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
 
     private void crustComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crustComboBoxActionPerformed
         this.pizza.setCrust(crustComboBox.getItemAt(crustComboBox.getSelectedIndex()));
-        update();
+        updateUI();
     }//GEN-LAST:event_crustComboBoxActionPerformed
 
     private void topping1ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping1ComboBoxActionPerformed
         this.pizza.setTopping1(topping1ComboBox.getItemAt(topping1ComboBox.getSelectedIndex()));
-        update();
+        updateUI();
     }//GEN-LAST:event_topping1ComboBoxActionPerformed
 
     private void topping2ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topping2ComboBoxActionPerformed
         this.pizza.setTopping2(topping2ComboBox.getItemAt(topping2ComboBox.getSelectedIndex()));
-        update();
+        updateUI();
     }//GEN-LAST:event_topping2ComboBoxActionPerformed
 
     private void sauceComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sauceComboBoxActionPerformed
         this.pizza.setSauce(sauceComboBox.getItemAt(sauceComboBox.getSelectedIndex()));
-        update();
+        updateUI();
     }//GEN-LAST:event_sauceComboBoxActionPerformed
 
     /**

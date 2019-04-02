@@ -75,6 +75,7 @@ public class OrderForm extends javax.swing.JFrame {
         closeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         newPizzaButton.setText("New Pizza");
         newPizzaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +169,7 @@ public class OrderForm extends javax.swing.JFrame {
         this.order.selectPizza(0);
         modifyForm.setOrder(getOrder());
         modifyForm.setPizza(getOrder().getPizza());
-        modifyForm.update();
+        modifyForm.updateUI();
         modifyForm.setVisible(true);
         
         if(modifyForm.getStatus() == 1) {
