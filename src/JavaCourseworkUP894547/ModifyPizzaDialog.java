@@ -15,10 +15,13 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
      * Creates new form ModifyPizzaDialog
      */
     private Pizza pizza;
+    private Order order;
+    private int status;
     
     public ModifyPizzaDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setStatus(0);
     }
     
     public void setPizza(Pizza newPizza) {
@@ -29,13 +32,44 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         return this.pizza;
     }
     
-    private void update() {
+    public void setOrder(Order newOrder) {
+        this.order = newOrder;
+    }
+    public Order getOrder() {
+        return this.order;
+    }
+    
+    public int getStatus() {
+        return this.status;
+    }
+    public void setStatus(int newStatus) {
+        this.status = newStatus;
+    }
+    private void selectPizza(int index) {
+        this.order.selectPizza(index);
+    }
+    
+    public void update() {
         sizeComboBox.setSelectedItem(pizza.getSize());
         crustComboBox.setSelectedItem(pizza.getCrust());
         topping2ComboBox.setSelectedItem(pizza.getTopping1());
         topping1ComboBox.setSelectedItem(pizza.getTopping2());
         sauceComboBox.setSelectedItem(pizza.getSauce());
         this.pizzaInfoTextArea.setText(pizza.returnInfo());
+    }
+    private void nextOrder() {
+        if(order.getSelectedPizza() < order.getPizzas().size()-1) {
+            selectPizza(order.getSelectedPizza()+1);
+            setPizza(getOrder().getPizza());
+            update();
+        }
+    }
+    private void prevOrder() {
+        if(order.getSelectedPizza() > 0) {
+            selectPizza(order.getSelectedPizza()-1);
+            setPizza(getOrder().getPizza());
+            update();
+        }
     }
 
     /**
@@ -51,10 +85,10 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         sauceComboBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         pizzaInfoTextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        modifyButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         sizeComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -74,19 +108,34 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         pizzaInfoTextArea.setRows(5);
         jScrollPane1.setViewportView(pizzaInfoTextArea);
 
-        jButton1.setText("<");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setText("<");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText(">");
+        nextButton.setText(">");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Delete Pizza");
-        jButton3.setToolTipText("");
+        deleteButton.setText("Delete Pizza");
+        deleteButton.setToolTipText("");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("OK");
+        modifyButton.setText("OK");
+        modifyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Size");
 
@@ -117,13 +166,13 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(backButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(nextButton)
                         .addGap(47, 47, 47)
-                        .addComponent(jButton3)
+                        .addComponent(deleteButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
+                        .addComponent(modifyButton))
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -169,23 +218,35 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(deleteButton)
+                    .addComponent(modifyButton)
+                    .addComponent(nextButton)
+                    .addComponent(backButton))
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        prevOrder();
+    }//GEN-LAST:event_backButtonActionPerformed
 
     private void sizeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sizeComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_sizeComboBoxActionPerformed
+
+    private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
+        setStatus(2);
+    }//GEN-LAST:event_modifyButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        setStatus(1);
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        nextOrder();
+    }//GEN-LAST:event_nextButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,17 +291,17 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JComboBox<Crust> crustComboBox;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modifyButton;
+    private javax.swing.JButton nextButton;
     private javax.swing.JTextArea pizzaInfoTextArea;
     private javax.swing.JComboBox<Sauce> sauceComboBox;
     private javax.swing.JComboBox<Size> sizeComboBox;

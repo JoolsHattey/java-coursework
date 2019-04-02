@@ -24,9 +24,13 @@ public class Order {
     }
     
     public Pizza getPizza(int index) {
+        this.selectedPizza = index;
         return this.pizzas.get(index);
+        
     }
-    
+    public Pizza getPizza() {
+        return this.pizzas.get(getSelectedPizza());
+    }    
     /*public Pizza getPizza(int id) {
         Pizza output = null;
         for(Pizza pizza : pizzas) {

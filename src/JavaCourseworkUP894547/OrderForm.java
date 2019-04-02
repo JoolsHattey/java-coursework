@@ -32,6 +32,9 @@ public class OrderForm extends javax.swing.JFrame {
     public Order getOrder() {
         return this.order;
     }
+    public void setOrder(Order newOrder) {
+        this.order = newOrder;
+    }
     
     private void update() {
         orderSummaryTextArea.setText(order.returnInfo());
@@ -140,10 +143,26 @@ public class OrderForm extends javax.swing.JFrame {
         update();
     }//GEN-LAST:event_newPizzaButtonActionPerformed
 
-    private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed
+    private int modifyPizza(int selectedPizza) {
         ModifyPizzaDialog modifyForm = new ModifyPizzaDialog(this, true);
-        modifyForm.setPizza(getOrder().getPizza(0));
+        this.order.selectPizza(0);
+        modifyForm.setOrder(getOrder());
+        modifyForm.setPizza(getOrder().getPizza());
+        modifyForm.update();
         modifyForm.setVisible(true);
+        
+        this.order = modifyForm.getOrder();
+        return modifyForm.getStatus();
+    }
+    
+    private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed
+        
+        int status = modifyPizza(0);
+        if(status == 1) {
+            
+        } else if(status == 2) {
+            order.deletePizza();
+        }
         
         
     }//GEN-LAST:event_modifyPizzaButtonActionPerformed
