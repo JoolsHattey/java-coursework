@@ -52,8 +52,8 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     public void update() {
         sizeComboBox.setSelectedItem(pizza.getSize());
         crustComboBox.setSelectedItem(pizza.getCrust());
-        topping2ComboBox.setSelectedItem(pizza.getTopping1());
-        topping1ComboBox.setSelectedItem(pizza.getTopping2());
+        topping1ComboBox.setSelectedItem(pizza.getTopping1());
+        topping2ComboBox.setSelectedItem(pizza.getTopping2());
         sauceComboBox.setSelectedItem(pizza.getSauce());
         this.pizzaInfoTextArea.setText(pizza.returnInfo());
     }
@@ -258,11 +258,13 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_sizeComboBoxActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
-        setStatus(2);
+        setStatus(1);
+        dispose();
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        setStatus(1);
+        setStatus(2);
+        dispose();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed

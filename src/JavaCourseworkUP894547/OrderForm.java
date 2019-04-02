@@ -143,7 +143,7 @@ public class OrderForm extends javax.swing.JFrame {
         update();
     }//GEN-LAST:event_newPizzaButtonActionPerformed
 
-    private int modifyPizza(int selectedPizza) {
+    private void modifyPizza(int selectedPizza) {
         ModifyPizzaDialog modifyForm = new ModifyPizzaDialog(this, true);
         this.order.selectPizza(0);
         modifyForm.setOrder(getOrder());
@@ -152,19 +152,17 @@ public class OrderForm extends javax.swing.JFrame {
         modifyForm.setVisible(true);
         
         this.order = modifyForm.getOrder();
-        return modifyForm.getStatus();
+       
+        if(modifyForm.getStatus() == 1) {
+            
+        } else if(modifyForm.getStatus() == 2) {
+            order.deletePizza();
+        } 
+        update();
     }
     
     private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed
-        
-        int status = modifyPizza(0);
-        if(status == 1) {
-            
-        } else if(status == 2) {
-            order.deletePizza();
-        }
-        
-        
+        modifyPizza(0);
     }//GEN-LAST:event_modifyPizzaButtonActionPerformed
 
     /**
