@@ -16,23 +16,31 @@ public class Pizza {
         this.topping1 = Topping.NONE;
         this.topping2 = Topping.NONE;
     }
+    
+    public double calculateBaseCost() {
+        return getSize().getCost() + getCrust().getCost();
+    }
 
-    public double calculateCost() {
-        double total, base;
-        base = getSize().getCost() + getCrust().getCost();
-        total = base + getTopping1TotalCost() + getTopping2TotalCost() + getSauce().getCost();
+    public double calculateTotalCost() {
+        double total;
+        total = calculateBaseCost() + getTopping1TotalCost() + getTopping2TotalCost() + getSauce().getCost();
         return total;
     }
 
     public String returnInfo() {
         StringBuilder info = new StringBuilder();
-        info.append(String.format("TOTAL COST: £%.2f",calculateCost()));
-        info.append(String.format("\n%s: £%.2f",getSize().toString(),getSize().getCost()));
-        info.append(String.format("\n%s: £%.2f",getCrust().toString(),getCrust().getCost()));
-        info.append(String.format("\nBASE COST: £%.2f",(getSize().getCost()+getCrust().getCost())));
-        info.append(String.format("\n%s: 5* £%.2f = £%.2f",getTopping1().toString(),getTopping1().getCost(), getTopping1TotalCost()));
-        info.append(String.format("\n%s: 4* £%.2f = £%.2f",getTopping2().toString(),getTopping2().getCost(), getTopping2TotalCost()));
-        info.append(String.format("\n%s: £%.2f",getSauce().toString(),getSauce().getCost()));
+        info.append(String.format("TOTAL COST: £%.2f", calculateTotalCost()));
+        info.append(String.format("\n%s: £%.2f", getSize().toString(), 
+                                    getSize().getCost()));
+        info.append(String.format("\n%s: £%.2f", getCrust().toString(), 
+                                     getCrust().getCost()));
+        info.append(String.format("\nBASE COST: £%.2f", calculateBaseCost()));
+        info.append(String.format("\n%s: 5* £%.2f = £%.2f", getTopping1().toString(), 
+                                    getTopping1().getCost(), getTopping1TotalCost()));
+        info.append(String.format("\n%s: 4* £%.2f = £%.2f", getTopping2().toString(), 
+                                    getTopping2().getCost(), getTopping2TotalCost()));
+        info.append(String.format("\n%s: £%.2f", getSauce().toString(), 
+                                    getSauce().getCost()));
         return info.toString();
     }
 

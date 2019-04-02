@@ -7,7 +7,7 @@ public class TestPizza {
         //1st pizza
         Pizza pizza1 = new Pizza();
         
-        System.out.println(pizza1.calculateCost());
+        System.out.println(pizza1.calculateTotalCost());
         System.out.println(pizza1.returnInfo());
 
         pizza1.setSize(Size.MEDIUM);
@@ -16,7 +16,7 @@ public class TestPizza {
         pizza1.setTopping1(Topping.EXTRA_CHEESE);
         pizza1.setTopping2(Topping.CHILLI);
 
-        System.out.println(pizza1.calculateCost());
+        System.out.println(pizza1.calculateTotalCost());
         System.out.println(pizza1.returnInfo());
 
         //2nd pizza
@@ -28,7 +28,7 @@ public class TestPizza {
         pizza2.setTopping1(Topping.PEPPERONI);
         pizza2.setTopping2(Topping.MUSHROOM);
 
-        System.out.println(pizza2.calculateCost());
+        System.out.println(pizza2.calculateTotalCost());
         System.out.println(pizza2.returnInfo());
         
 

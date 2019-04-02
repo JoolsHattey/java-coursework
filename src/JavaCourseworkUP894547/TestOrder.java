@@ -51,6 +51,14 @@ public class TestOrder {
         System.out.println("\nOrder after edit:");
         System.out.println(order.returnInfo());
         System.out.println(order.returnCost());
+        
+        //Delete pizza
+        order.selectPizza(1);
+        order.deletePizza();
+        
+        System.out.println("\nOrder after delete:");
+        System.out.println(order.returnInfo());
+        System.out.println(order.returnCost());
     }
 
 

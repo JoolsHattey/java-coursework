@@ -40,7 +40,7 @@ public class Order {
     public double returnCost() {
         double cost = 0;
         for(Pizza pizza : getPizzas()) {
-            cost += pizza.calculateCost();
+            cost += pizza.calculateTotalCost();
         }
         return cost;
     }
