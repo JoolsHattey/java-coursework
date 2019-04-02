@@ -17,6 +17,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     private Pizza pizza;
     private Order order;
     private int status;
+    private int index;
     
     public ModifyPizzaDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -39,6 +40,13 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         return this.order;
     }
     
+    public int getIndex() {
+        return this.index;
+    }
+    public void setIndex(int newIndex) {
+        this.index = newIndex;
+    }
+
     public int getStatus() {
         return this.status;
     }
@@ -47,6 +55,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     }
     private void selectPizza(int index) {
         this.order.selectPizza(index);
+        setIndex(index);
     }
     
     public void update() {

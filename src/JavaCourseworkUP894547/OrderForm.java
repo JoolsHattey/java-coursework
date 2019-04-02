@@ -155,10 +155,8 @@ public class OrderForm extends javax.swing.JFrame {
         modifyForm.update();
         modifyForm.setVisible(true);
         
-        this.order = modifyForm.getOrder();
-       
         if(modifyForm.getStatus() == 1) {
-            
+            this.order.modifyPizza(modifyForm.getIndex(), modifyForm.getPizza());
         } else if(modifyForm.getStatus() == 2) {
             order.deletePizza();
         } 

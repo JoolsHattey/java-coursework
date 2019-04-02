@@ -4,6 +4,7 @@ public class TestPizza {
 
     public static void main(String[] args){
 
+        //1st pizza
         Pizza pizza1 = new Pizza();
         
         System.out.println(pizza1.calculateCost());
@@ -18,6 +19,7 @@ public class TestPizza {
         System.out.println(pizza1.calculateCost());
         System.out.println(pizza1.returnInfo());
 
+        //2nd pizza
         Pizza pizza2 = new Pizza();
         
         pizza2.setSize(Size.LARGE);
@@ -28,6 +30,7 @@ public class TestPizza {
 
         System.out.println(pizza2.calculateCost());
         System.out.println(pizza2.returnInfo());
+        
 
     }
 

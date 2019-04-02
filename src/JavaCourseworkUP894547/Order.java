@@ -14,10 +14,10 @@ public class Order {
     public String returnInfo() {
         //String output = "";
         StringBuilder info = new StringBuilder();
-        if (pizzas.isEmpty()) {
+        if (getPizzas().isEmpty()) {
             return "No Pizzas";
         } else {
-            for(Pizza pizza: pizzas) {
+            for(Pizza pizza: getPizzas()) {
                 info.append(pizza.returnInfo()+"\n\n");
             }
             return info.toString();
@@ -34,19 +34,19 @@ public class Order {
     }    
     
     public String returnSpecificInfo() {
-        return this.pizzas.get(getSelectedPizza()).returnInfo();
+        return getPizzas().get(getSelectedPizza()).returnInfo();
     }
 
     public double returnCost() {
         double cost = 0;
-        for(Pizza pizza : pizzas) {
+        for(Pizza pizza : getPizzas()) {
             cost += pizza.calculateCost();
         }
         return cost;
     }
 
     public int numPizzas() {
-        return this.pizzas.size();
+        return getPizzas().size();
     }
 
     public void createPizza() {
@@ -56,6 +56,9 @@ public class Order {
     
     public void addPizza(Pizza newPizza) {
         this.pizzas.add(newPizza);
+    }
+    public void modifyPizza(int index, Pizza newPizza) {
+        this.pizzas.set(index, newPizza);
     }
 
     public void deletePizza() {
