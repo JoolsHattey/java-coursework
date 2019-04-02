@@ -44,12 +44,12 @@ public enum Topping {
     },
     ONION(0.07){
         public String toString() {
-            return "Onion JavaCourseworkUP894547.Topping";
+            return "Onion";
         }
     },
     ANCHOVY(0.09){
         public String toString() {
-            return "Anchovy JavaCourseworkUP894547.Topping";
+            return "Anchovy";
         }
     };
 
