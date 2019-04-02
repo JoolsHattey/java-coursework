@@ -9,17 +9,17 @@ public enum Crust {
     },
     THIN(1.08){
         public String toString() {
-            return "Thin";
+            return "Thin Crust";
         }
     },
     DEEP(1.10){
         public String toString() {
-            return "Deep";
+            return "Deep Crust";
         }
     },
     STUFFED(2.14){
         public String toString() {
-            return "Stuffed";
+            return "Stuffed Crust";
         }
     };
 

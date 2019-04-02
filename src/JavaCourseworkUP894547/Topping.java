@@ -4,52 +4,52 @@ public enum Topping {
     
     NONE(0.00){
         public String toString() {
-            return "No";
+            return "No Topping";
         }
     },
     OLIVES(0.08){
         public String toString() {
-            return "Olive";
+            return "Olive Topping";
         }
     },
     EXTRA_CHEESE(0.02){
         public String toString() {
-            return "Extra Cheese";
+            return "Extra Cheese Topping";
         }
     },
     CHILLI(0.06){
         public String toString() {
-            return "Chilli";
+            return "Chilli Topping";
         }
     },
     PEPPERONI(0.10){
         public String toString() {
-            return "Pepperoni";
+            return "Pepperoni Topping";
         }
     },
     MUSHROOM(0.03){
         public String toString() {
-            return "Mushroom";
+            return "Mushroom Topping";
         }
     },
     ROCKET(0.05){
         public String toString() {
-            return "Rocket";
+            return "Rocket Topping";
         }
     },
     JALAPENOS(0.20){
         public String toString() {
-            return "Jalapenos";
+            return "Jalapenos Topping";
         }
     },
     ONION(0.07){
         public String toString() {
-            return "Onion";
+            return "Onion Topping";
         }
     },
     ANCHOVY(0.09){
         public String toString() {
-            return "Anchovy";
+            return "Anchovy Topping";
         }
     };
 
