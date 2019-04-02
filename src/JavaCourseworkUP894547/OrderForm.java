@@ -6,6 +6,8 @@
 package JavaCourseworkUP894547;
 
 import java.awt.Dialog.ModalityType;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 /**
  *
@@ -22,6 +24,7 @@ public class OrderForm extends javax.swing.JFrame {
         initComponents();
         order = new Order();
         update(); 
+        centre();
     }
     
     //private void createNewOrder() {
@@ -39,6 +42,19 @@ public class OrderForm extends javax.swing.JFrame {
     private void update() {
         orderSummaryTextArea.setText(order.returnInfo());
         totalCostField.setText(String.format("£%.2f", getOrder().returnCost()));
+    }
+    
+    private void centre() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+ 
+        // calculate the new location of the window
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+ 
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        
+        this.setLocation(x, y);
     }
 
     /**

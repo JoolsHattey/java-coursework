@@ -5,6 +5,8 @@
  */
 package JavaCourseworkUP894547;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +26,7 @@ public class NewPizzaDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.pizza = new Pizza();
+        centre();
     }
     
     public Pizza getPizza() {
@@ -43,6 +46,18 @@ public class NewPizzaDialog extends javax.swing.JDialog {
         } else {
             return true;
         }
+    }
+    private void centre() {
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+ 
+        // calculate the new location of the window
+        int w = this.getSize().width;
+        int h = this.getSize().height;
+ 
+        int x = (dim.width - w) / 2;
+        int y = (dim.height - h) / 2;
+        
+        this.setLocation(x, y);
     }
 
     /**
