@@ -18,7 +18,7 @@ public class Order {
             return "No Pizzas";
         } else {
             for(Pizza pizza: pizzas) {
-                info.append(pizza.returnInfo()+"\n"+"\n");
+                info.append(pizza.returnInfo()+"\n\n");
             }
             return info.toString();
         }

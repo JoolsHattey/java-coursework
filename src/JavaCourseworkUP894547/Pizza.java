@@ -25,13 +25,15 @@ public class Pizza {
     }
 
     public String returnInfo() {
-        return String.format("TOTAL COST: £%.2f",calculateCost())+
-            "\n"+String.format("%s: £%.2f",getSize().toString(),getSize().getCost())+
-            "\n"+String.format("%s: £%.2f",getCrust().toString(),getCrust().getCost())+
-            "\n"+String.format("BASE COST: £%.2f",(getSize().getCost()+getCrust().getCost()))+
-            "\n"+String.format("%s: 5* £%.2f = £%.2f",getTopping1().toString(),getTopping1().getCost(), getTopping1TotalCost())+
-            "\n"+String.format("%s: 4* £%.2f = £%.2f",getTopping2().toString(),getTopping2().getCost(), getTopping2TotalCost())+
-            "\n"+String.format("%s: £%.2f",getSauce().toString(),getSauce().getCost());
+        StringBuilder info = new StringBuilder();
+        info.append(String.format("TOTAL COST: £%.2f",calculateCost()));
+        info.append(String.format("\n%s: £%.2f",getSize().toString(),getSize().getCost()));
+        info.append(String.format("\n%s: £%.2f",getCrust().toString(),getCrust().getCost()));
+        info.append(String.format("\nBASE COST: £%.2f",(getSize().getCost()+getCrust().getCost())));
+        info.append(String.format("\n%s: 5* £%.2f = £%.2f",getTopping1().toString(),getTopping1().getCost(), getTopping1TotalCost()));
+        info.append(String.format("\n%s: 4* £%.2f = £%.2f",getTopping2().toString(),getTopping2().getCost(), getTopping2TotalCost()));
+        info.append(String.format("\n%s: £%.2f",getSauce().toString(),getSauce().getCost()));
+        return info.toString();
     }
 
     public void setSize(Size newSize) {
