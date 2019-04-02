@@ -12,14 +12,15 @@ public class Order {
     }
 
     public String returnInfo() {
-        String output = "";
+        //String output = "";
+        StringBuilder info = new StringBuilder();
         if (pizzas.isEmpty()) {
             return "No Pizzas";
         } else {
             for(Pizza pizza: pizzas) {
-                output += pizza.returnInfo()+"\n"+"\n";
+                info.append(pizza.returnInfo()+"\n"+"\n");
             }
-            return output;
+            return info.toString();
         }
     }
     

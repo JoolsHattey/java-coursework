@@ -109,6 +109,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
             }
         });
 
+        pizzaInfoTextArea.setEditable(false);
         pizzaInfoTextArea.setColumns(20);
         pizzaInfoTextArea.setRows(5);
         jScrollPane1.setViewportView(pizzaInfoTextArea);

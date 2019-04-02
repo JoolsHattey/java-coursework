@@ -74,11 +74,14 @@ public class OrderForm extends javax.swing.JFrame {
             }
         });
 
+        orderSummaryTextArea.setEditable(false);
         orderSummaryTextArea.setColumns(20);
         orderSummaryTextArea.setRows(5);
         jScrollPane1.setViewportView(orderSummaryTextArea);
 
         totalCostLabel.setText("Total Order Cost");
+
+        totalCostField.setEditable(false);
 
         closeButton.setText("Close");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
