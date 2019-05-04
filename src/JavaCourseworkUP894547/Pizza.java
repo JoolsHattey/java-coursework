@@ -17,6 +17,14 @@ public class Pizza {
         this.topping2 = Topping.NONE;
     }
     
+    public Pizza(Size newSize, Crust newCrust, Sauce newSauce, Topping newTopping1, Topping newTopping2) {
+        this.size = newSize;
+        this.crust = newCrust;
+        this.sauce = newSauce;
+        this.topping1 = newTopping1;
+        this.topping2 = newTopping2;
+    }
+    
     public double calculateBaseCost() {
         return getSize().getCost() + getCrust().getCost();
     }

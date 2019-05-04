@@ -4,34 +4,49 @@ public class TestPizza {
 
     public static void main(String[] args){
 
-        //1st pizza
-        Pizza pizza1 = new Pizza();
+        //Create Pizza
+        System.out.println("-----------TEST PIZZA CLASS-----------");
+        System.out.println("======================================");
+        System.out.println("Pizza Creating With Following Data:\n"
+                + "Size: Medium\n"
+                + "Crust: Thin\n"
+                + "Sauce: Pesto\n"
+                + "Topping 1: Extra Cheese\n"
+                + "Topping 2: Chilli");
+                
+        Pizza pizza = new Pizza(
+                            Size.MEDIUM,
+                            Crust.THIN,
+                            Sauce.PESTO,
+                            Topping.EXTRA_CHEESE,
+                            Topping.CHILLI);
+
+        displayPizza(pizza);
+
         
-        System.out.println(pizza1.calculateTotalCost());
-        System.out.println(pizza1.returnInfo());
-
-        pizza1.setSize(Size.MEDIUM);
-        pizza1.setCrust(Crust.THIN);
-        pizza1.setSauce(Sauce.PESTO);
-        pizza1.setTopping1(Topping.EXTRA_CHEESE);
-        pizza1.setTopping2(Topping.CHILLI);
-
-        System.out.println(pizza1.calculateTotalCost());
-        System.out.println(pizza1.returnInfo());
-
-        //2nd pizza
-        Pizza pizza2 = new Pizza();
+        //Edit Pizza
+        System.out.println("--------------EDIT PIZZA--------------");
+        System.out.println("======================================");
+        System.out.println("Change the following using get/set methods:\n"
+                + "Size: Large\n"
+                + "Crust: Stuffed\n"
+                + "Topping 2: Pepperoni");
+        pizza.setSize(Size.LARGE);
+        pizza.setCrust(Crust.STUFFED);
+        pizza.setTopping2(Topping.PEPPERONI);
         
-        pizza2.setSize(Size.LARGE);
-        pizza2.setCrust(Crust.STUFFED);
-        pizza2.setSauce(Sauce.TOMATO);
-        pizza2.setTopping1(Topping.PEPPERONI);
-        pizza2.setTopping2(Topping.MUSHROOM);
-
-        System.out.println(pizza2.calculateTotalCost());
-        System.out.println(pizza2.returnInfo());
-        
-
+        displayPizza(pizza);
+    }
+    
+    
+    
+    private static void displayPizza(Pizza pizza) {
+        System.out.println("\n");
+        System.out.println("-------------PIZZA DISPLAY------------");
+        System.out.println("======================================");
+        System.out.println(pizza.returnInfo());
+        System.out.println("======================================");
+        System.out.println("\n");
     }
 
 }
