@@ -4,62 +4,125 @@ public class TestOrder {
 
     public static void main(String[] args) {
         
+        
+        //Creating empty order and adding pizzas
+        System.out.println("-------------ORDER CLASS TEST-------------");
+        System.out.println("------------------------------------------");
+        System.out.println("-----------CREATE EMPTY ORDER-------------");
+        
         Order order = new Order();
         
-        //Creating 1st pizza using order object functions
-        order.createPizza();
-        order.selectPizza(0);
+        //1st Pizza
+        System.out.println("Pizza 1 Creation and add to order:");
+        System.out.println("Pizza Creating With Following Data:\n"
+                + "Size: Medium\n"
+                + "Crust: Thin\n"
+                + "Sauce: Pesto\n"
+                + "Topping 1: Extra Cheese\n"
+                + "Topping 2: Chilli");
+        System.out.println("\n");
         
-        order.setPizzaSize(Size.MEDIUM);
-        order.setPizzaCrust(Crust.THIN);
-        order.setPizzaSauce(Sauce.PESTO);
-        order.setPizzaTopping1(Topping.EXTRA_CHEESE);
-        order.setPizzaTopping2(Topping.CHILLI);
+        Pizza pizza1 = new Pizza(
+                            Size.MEDIUM,
+                            Crust.THIN,
+                            Sauce.PESTO,
+                            Topping.EXTRA_CHEESE,
+                            Topping.CHILLI);
+        order.addPizza(pizza1);
         
-        //Creating 2nd pizza using order object functions
-        order.createPizza();
-        order.selectPizza(1);
+        //2nd Pizza
+        System.out.println("Pizza 2 Creation and add to order:");
+        System.out.println("Pizza Creating With Following Data:\n"
+                + "Size: Medium\n"
+                + "Crust: Stuffed\n"
+                + "Sauce: Pesto\n"
+                + "Topping 1: Olive\n"
+                + "Topping 2: Onion");
+        System.out.println("\n");
         
-        order.setPizzaSize(Size.LARGE);
-        order.setPizzaCrust(Crust.STUFFED);
-        order.setPizzaSauce(Sauce.TOMATO);
-        order.setPizzaTopping1(Topping.PEPPERONI);
-        order.setPizzaTopping2(Topping.MUSHROOM);
+        Pizza pizza2 = new Pizza(
+                            Size.MEDIUM,
+                            Crust.STUFFED,
+                            Sauce.PESTO,
+                            Topping.OLIVES,
+                            Topping.ONION);
+        order.addPizza(pizza2);
         
-        //Created 3rd pizza object then added it to the list using addPizza
-        Pizza pizza = new Pizza();
-        pizza.setSize(Size.MEDIUM);
-        pizza.setCrust(Crust.THIN);
-        pizza.setSauce(Sauce.PESTO);
-        pizza.setTopping1(Topping.EXTRA_CHEESE);
-        pizza.setTopping2(Topping.CHILLI);
-        order.addPizza(pizza);
+        //3rd Pizza
+        System.out.println("Pizza 3 Creation and add to order:");
+        System.out.println("Pizza Creating With Following Data:\n"
+                + "Size: Small\n"
+                + "Crust: Thin\n"
+                + "Sauce: Pesto\n"
+                + "Topping 1: Chilli\n"
+                + "Topping 2: Pepperoni");
+        System.out.println("\n");
         
-        //Print output to console
-        System.out.println(order.numPizzas()+" Pizzas in order");
-        System.out.println(order.returnInfo());
-        System.out.println(order.returnCost());
+        Pizza pizza3 = new Pizza(
+                            Size.SMALL,
+                            Crust.THIN,
+                            Sauce.PESTO,
+                            Topping.CHILLI,
+                            Topping.PEPPERONI);
+        order.addPizza(pizza3);
         
-        //Edit pizza
-        order.selectPizza(0);
-        order.setPizzaSize(Size.LARGE);
-        order.setPizzaSauce(Sauce.PESTO);
-        order.setPizzaCrust(Crust.DEEP);
-        order.setPizzaTopping1(Topping.PEPPERONI);
-        order.setPizzaTopping2(Topping.ONION);
+        //4th Pizza
+        System.out.println("Pizza 4 Creation and add to order:");
+        System.out.println("Pizza Creating With Following Data:\n"
+                + "Size: Small\n"
+                + "Crust: Thin\n"
+                + "Sauce: Pesto\n"
+                + "Topping 1: Olive\n"
+                + "Topping 2: Olive");
+        System.out.println("\n");
         
-        System.out.println("\nOrder after edit:");
-        System.out.println(order.returnInfo());
-        System.out.println(order.returnCost());
+        Pizza pizza4 = new Pizza(
+                            Size.SMALL,
+                            Crust.THIN,
+                            Sauce.PESTO,
+                            Topping.OLIVES,
+                            Topping.OLIVES);
+        order.addPizza(pizza4);
         
-        //Delete pizza
-        order.selectPizza(1);
+        
+        //Selecting and deleting specifc pizza
+        displayOrder(order);
+        
+        System.out.println("-----TESTING DELETE PIZZA-----");
+        System.out.println("Deleting Pizza 3");
+        
+        order.selectPizza(2);
         order.deletePizza();
         
-        System.out.println("\nOrder after delete:");
-        System.out.println(order.returnInfo());
-        System.out.println(order.returnCost());
+        displayOrder(order);
+        
+        
+        //Selecting and updating specific pizza
+        System.out.println("----TESTING EDIT PIZZA-----");
+        System.out.println("Editing Pizza 1");
+        System.out.println("Change the following using get/set methods:\n"
+                + "Size: Large\n"
+                + "Crust: Stuffed\n"
+                + "Topping 2: Pepperoni");
+        
+        order.selectPizza(0);
+        order.setPizzaSize(Size.LARGE);
+        order.setPizzaCrust(Crust.STUFFED);
+        order.setPizzaTopping2(Topping.PEPPERONI);
+        
+        displayOrder(order);      
     }
+  
 
-
+    
+    public static void displayOrder(Order order) {
+        System.out.println("\n");
+        System.out.println("-------------ORDER DISPLAY------------");
+        System.out.println("======================================");
+        System.out.println("Number of Pizzas: " + String.valueOf(order.numPizzas()) + "\n");
+        System.out.println(String.format("Total Order Cost: £%.2f\n", order.returnCost()));
+        System.out.println(order.returnInfo());
+        System.out.println("======================================");
+        System.out.println("\n");
+    }
 }
