@@ -5,6 +5,12 @@
  */
 package JavaCourseworkUP894547;
 
+import Server.Size;
+import Server.Sauce;
+import Server.Crust;
+import Server.Pizza;
+import Server.Topping;
+import Server.Order;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 

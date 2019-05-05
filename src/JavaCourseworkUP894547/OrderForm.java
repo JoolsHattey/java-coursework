@@ -5,6 +5,7 @@
  */
 package JavaCourseworkUP894547;
 
+import Server.Order;
 import java.awt.Dialog.ModalityType;
 import java.awt.Dimension;
 import java.awt.Toolkit;

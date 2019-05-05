@@ -1,4 +1,4 @@
-package JavaCourseworkUP894547;
+package Server;
 
 public enum Size {
     

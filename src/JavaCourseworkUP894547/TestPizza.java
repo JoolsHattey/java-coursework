@@ -1,5 +1,11 @@
 package JavaCourseworkUP894547;
 
+import Server.Size;
+import Server.Sauce;
+import Server.Crust;
+import Server.Pizza;
+import Server.Topping;
+
 public class TestPizza {
 
     public static void main(String[] args){
