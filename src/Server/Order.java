@@ -10,7 +10,7 @@ public class Order {
     public Order() {
         pizzas = new ArrayList<Pizza>();
     }
-
+    
     public String returnInfo() {
         //String output = "";
         int pos = 1;
@@ -28,12 +28,12 @@ public class Order {
     }
     
     public Pizza getPizza(int index) {
-        this.selectedPizza = index;
-        return this.pizzas.get(index);
+        selectPizza(index);
+        return getPizzas().get(index);
         
     }
     public Pizza getPizza() {
-        return this.pizzas.get(getSelectedPizza());
+        return getPizzas().get(getSelectedPizza());
     }    
     
     public String returnSpecificInfo() {
@@ -54,18 +54,18 @@ public class Order {
 
     public void createPizza() {
         Pizza newPizza = new Pizza();
-        this.pizzas.add(newPizza);
+        getPizzas().add(newPizza);
     }
     
     public void addPizza(Pizza newPizza) {
-        this.pizzas.add(newPizza);
+        getPizzas().add(newPizza);
     }
     public void modifyPizza(int index, Pizza newPizza) {
-        this.pizzas.set(index, newPizza);
+        getPizzas().set(index, newPizza);
     }
 
     public void deletePizza() {
-        this.pizzas.remove(getSelectedPizza());
+        getPizzas().remove(getSelectedPizza());
     }
     
     public void selectPizza(int index) {
@@ -78,40 +78,43 @@ public class Order {
     public ArrayList<Pizza> getPizzas() {
         return this.pizzas;
     }
+    public void setPizzas(ArrayList<Pizza> newPizzas) {
+        this.pizzas = newPizzas;
+    }
     
     public void setPizzaSize(Size newSize) {
-        this.pizzas.get(getSelectedPizza()).setSize(newSize);
+        getPizzas().get(getSelectedPizza()).setSize(newSize);
     }
     public Size getPizzaSize() {
-        return this.pizzas.get(getSelectedPizza()).getSize();
+        return getPizzas().get(getSelectedPizza()).getSize();
     }
     
     public void setPizzaCrust(Crust newCrust) {
-        this.pizzas.get(getSelectedPizza()).setCrust(newCrust);
+        getPizzas().get(getSelectedPizza()).setCrust(newCrust);
     }
     public Crust getPizzaCrust() {
-        return this.pizzas.get(getSelectedPizza()).getCrust();
+        return getPizzas().get(getSelectedPizza()).getCrust();
     }
     
     public void setPizzaSauce(Sauce newSauce) {
-        this.pizzas.get(getSelectedPizza()).setSauce(newSauce);
+        getPizzas().get(getSelectedPizza()).setSauce(newSauce);
     }
     public Sauce getPizzaSauce() {
-        return this.pizzas.get(getSelectedPizza()).getSauce();
+        return getPizzas().get(getSelectedPizza()).getSauce();
     }
     
     public void setPizzaTopping1(Topping newTopping) {
-        this.pizzas.get(getSelectedPizza()).setTopping1(newTopping);
+        getPizzas().get(getSelectedPizza()).setTopping1(newTopping);
     }
     public Topping getPizzaTopping1() {
-        return this.pizzas.get(getSelectedPizza()).getTopping1();
+        return getPizzas().get(getSelectedPizza()).getTopping1();
     }
 
     public void setPizzaTopping2(Topping newTopping) {
-        this.pizzas.get(getSelectedPizza()).setTopping2(newTopping);
+        getPizzas().get(getSelectedPizza()).setTopping2(newTopping);
     }
     public Topping getPizzaTopping2() {
-        return this.pizzas.get(getSelectedPizza()).getTopping2();
+        return getPizzas().get(getSelectedPizza()).getTopping2();
     }
 
 }

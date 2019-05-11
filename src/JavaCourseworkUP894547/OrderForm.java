@@ -23,25 +23,29 @@ public class OrderForm extends javax.swing.JFrame {
      */
     public OrderForm() {
         initComponents();
-        order = new Order();
-        update(); 
+        setOrder(new Order());
+        updateUI();
         centre();
     }
     
     //private void createNewOrder() {
     //    Order newOrder = new Order();
     //    this.order = newOrder;
-    //}
+    //}9-
     
-    public Order getOrder() {
+    private void selectPizza(int index) {
+        this.order.selectPizza(index);
+    }
+    
+    private Order getOrder() {
         return this.order;
     }
-    public void setOrder(Order newOrder) {
+    private void setOrder(Order newOrder) {
         this.order = newOrder;
     }
     
-    private void update() {
-        orderSummaryTextArea.setText(order.returnInfo());
+    private void updateUI() {
+        orderSummaryTextArea.setText(getOrder().returnInfo());
         totalCostField.setText(String.format("£%.2f", getOrder().returnCost()));
     }
     
@@ -155,34 +159,37 @@ public class OrderForm extends javax.swing.JFrame {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void newPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPizzaButtonActionPerformed
-        // New pizza button
         NewPizzaDialog pizzaform1 = new NewPizzaDialog(this, true);
         pizzaform1.setVisible(true);
         
-        if(pizzaform1.getKeep()){
-            order.addPizza(pizzaform1.getPizza());
+        if(pizzaform1.getStatus()){
+            getOrder().addPizza(pizzaform1.getPizza());
         }
-        update();
+        updateUI();
     }//GEN-LAST:event_newPizzaButtonActionPerformed
 
-    private void modifyPizza(int selectedPizza) {
+    private void modifyPizza() {
+        //Order tempOrder = new Order();
+        //tempOrder.setPizzas(getOrder().getPizzas());
+        //tempOrder.selectPizza(getOrder().getSelectedPizza());
+        selectPizza(0);
         ModifyPizzaDialog modifyForm = new ModifyPizzaDialog(this, true);
-        this.order.selectPizza(0);
         modifyForm.setOrder(getOrder());
-        modifyForm.setPizza(getOrder().getPizza());
-        modifyForm.updateUI();
+        modifyForm.setPizza(modifyForm.tempPizza());
+        modifyForm.setIndex(modifyForm.getOrder().getSelectedPizza());
         modifyForm.setVisible(true);
         
-        if(modifyForm.getStatus() == 1) {
-            this.order.modifyPizza(modifyForm.getIndex(), modifyForm.getPizza());
-        } else if(modifyForm.getStatus() == 2) {
-            order.deletePizza();
-        } 
-        update();
+        if(modifyForm.getStatus()) {
+            //setOrder(modifyForm.getOrder());
+        } else {
+            getOrder().deletePizza();
+        }
+        
+        updateUI();
     }
     
     private void modifyPizzaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyPizzaButtonActionPerformed
-        if(order.getPizzas().size()>0) {modifyPizza(0);}
+        if(getOrder().numPizzas()>0) {modifyPizza();}
     }//GEN-LAST:event_modifyPizzaButtonActionPerformed
 
     /**

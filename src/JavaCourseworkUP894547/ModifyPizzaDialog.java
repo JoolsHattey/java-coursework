@@ -25,15 +25,16 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
      */
     private Pizza pizza;
     private Order order;
-    private int status;
+    private boolean status;
     private int index;
     
     public ModifyPizzaDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setStatus(0);
+        setStatus(true);
         centre();
     }
+    
     private void centre() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
  
@@ -46,57 +47,56 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
         
         this.setLocation(x, y);
     }
+    
+    public Pizza tempPizza() {
+        Pizza tempPizza = new Pizza(getOrder().getPizzaSize(),
+                                    getOrder().getPizzaCrust(),
+                                    getOrder().getPizzaSauce(),
+                                    getOrder().getPizzaTopping1(),
+                                    getOrder().getPizzaTopping2());
+        return tempPizza;
+    }
+    
+    public Pizza getPizza() {return this.pizza;}
     public void setPizza(Pizza newPizza) {
         this.pizza = newPizza;
         updateUI();
     }
-    public Pizza getPizza() {
-        return this.pizza;
-    }
     
-    public void setOrder(Order newOrder) {
-        this.order = newOrder;
-    }
-    public Order getOrder() {
-        return this.order;
-    }
+    public Order getOrder() {return this.order;}
+    public void setOrder(Order newOrder) {this.order = newOrder;}
     
-    public int getIndex() {
-        return this.index;
-    }
-    public void setIndex(int newIndex) {
-        this.index = newIndex;
-    }
+    public int getIndex() {return this.index;}
+    public void setIndex(int newIndex) {this.index = newIndex;}
 
-    public int getStatus() {
-        return this.status;
-    }
-    public void setStatus(int newStatus) {
-        this.status = newStatus;
-    }
+    public boolean getStatus() {return this.status;}
+    public void setStatus(boolean newStatus) {this.status = newStatus;}
+    
     private void selectPizza(int index) {
-        this.order.selectPizza(index);
+        getOrder().selectPizza(index);
         setIndex(index);
     }
     
-    public void updateUI() {
-        sizeComboBox.setSelectedItem(pizza.getSize());
-        crustComboBox.setSelectedItem(pizza.getCrust());
-        topping1ComboBox.setSelectedItem(pizza.getTopping1());
-        topping2ComboBox.setSelectedItem(pizza.getTopping2());
-        sauceComboBox.setSelectedItem(pizza.getSauce());
-        this.pizzaInfoTextArea.setText(pizza.returnInfo());
+    private void updateUI() {
+        this.sizeComboBox.setSelectedItem(getPizza().getSize());
+        this.crustComboBox.setSelectedItem(getPizza().getCrust());
+        this.topping1ComboBox.setSelectedItem(getPizza().getTopping1());
+        this.topping2ComboBox.setSelectedItem(getPizza().getTopping2());
+        this.sauceComboBox.setSelectedItem(getPizza().getSauce());
+        this.pizzaInfoTextArea.setText(getPizza().returnInfo());
     }
+    
     private void nextOrder() {
-        if(order.getSelectedPizza() < order.getPizzas().size()-1) {
-            selectPizza(order.getSelectedPizza()+1);
+        if(getIndex() < getOrder().numPizzas()-1) {
+            setIndex(getIndex()+1);
             setPizza(getOrder().getPizza());
             updateUI();
         }
     }
+    
     private void prevOrder() {
-        if(order.getSelectedPizza() > 0) {
-            selectPizza(order.getSelectedPizza()-1);
+        if(getIndex() > 0) {
+            setIndex(getIndex()-1);
             setPizza(getOrder().getPizza());
             updateUI();
         }
@@ -290,12 +290,13 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_sizeComboBoxActionPerformed
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
-        setStatus(1);
+        getOrder().getPizzas().set(getIndex(), getPizza());
+        setStatus(true);
         dispose();
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        setStatus(2);
+        setStatus(false);
         dispose();
     }//GEN-LAST:event_deleteButtonActionPerformed
 

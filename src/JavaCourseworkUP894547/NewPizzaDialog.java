@@ -39,7 +39,7 @@ public class NewPizzaDialog extends javax.swing.JDialog {
     private void setKeep(boolean keep) {
         this.keep = keep;
     }
-    public boolean getKeep() {
+    public boolean getStatus() {
         return this.keep;
     }
     private boolean checkComplete() {
