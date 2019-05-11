@@ -230,7 +230,7 @@ public class NewPizzaDialog extends javax.swing.JDialog {
             dispose();
         } else {
             Object[] options = {"OK"};
-            JOptionPane.showOptionDialog(null, "You must select crust size and sauce", "Warning",
+            JOptionPane.showOptionDialog(null, "You must select the crust, size and sauce", "Warning",
             JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE,
             null, options, options[0]);
         }

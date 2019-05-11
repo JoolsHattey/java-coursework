@@ -67,7 +67,10 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     public void setOrder(Order newOrder) {this.order = newOrder;}
     
     public int getIndex() {return this.index;}
-    public void setIndex(int newIndex) {this.index = newIndex;}
+    public void setIndex(int newIndex) {
+        this.index = newIndex;
+        getOrder().selectPizza(index);
+    }
 
     public boolean getDelete() {return this.delete;}
     public void setDelete(boolean newDelete) {this.delete = newDelete;}
@@ -84,7 +87,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     private void nextOrder() {
         if(getIndex() < getOrder().numPizzas()-1) {
             setIndex(getIndex()+1);
-            setPizza(getOrder().getPizza());
+            setPizza(tempPizza());
             updateUI();
         }
     }
@@ -92,7 +95,7 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     private void prevOrder() {
         if(getIndex() > 0) {
             setIndex(getIndex()-1);
-            setPizza(getOrder().getPizza());
+            setPizza(tempPizza());
             updateUI();
         }
     }
