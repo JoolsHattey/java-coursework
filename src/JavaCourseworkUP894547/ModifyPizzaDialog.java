@@ -25,13 +25,13 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
      */
     private Pizza pizza;
     private Order order;
-    private boolean status;
+    private boolean delete;
     private int index;
     
     public ModifyPizzaDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setStatus(true);
+        setDelete(false);
         centre();
     }
     
@@ -69,13 +69,8 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
     public int getIndex() {return this.index;}
     public void setIndex(int newIndex) {this.index = newIndex;}
 
-    public boolean getStatus() {return this.status;}
-    public void setStatus(boolean newStatus) {this.status = newStatus;}
-    
-    private void selectPizza(int index) {
-        getOrder().selectPizza(index);
-        setIndex(index);
-    }
+    public boolean getDelete() {return this.delete;}
+    public void setDelete(boolean newDelete) {this.delete = newDelete;}
     
     private void updateUI() {
         this.sizeComboBox.setSelectedItem(getPizza().getSize());
@@ -291,12 +286,11 @@ public class ModifyPizzaDialog extends javax.swing.JDialog {
 
     private void modifyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyButtonActionPerformed
         getOrder().getPizzas().set(getIndex(), getPizza());
-        setStatus(true);
         dispose();
     }//GEN-LAST:event_modifyButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        setStatus(false);
+        setDelete(true);
         dispose();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
