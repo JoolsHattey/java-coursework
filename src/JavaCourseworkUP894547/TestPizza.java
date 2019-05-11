@@ -13,12 +13,12 @@ public class TestPizza {
         //Create Pizza
         System.out.println("-----------TEST PIZZA CLASS-----------");
         System.out.println("======================================");
-        System.out.println("Pizza Creating With Following Data:\n"
-                + "Size: Medium\n"
-                + "Crust: Thin\n"
-                + "Sauce: Pesto\n"
-                + "Topping 1: Extra Cheese\n"
-                + "Topping 2: Chilli");
+        System.out.println("Creating Pizza With Following Data:\n"
+                            + "Size: Medium\n"
+                            + "Crust: Thin\n"
+                            + "Sauce: Pesto\n"
+                            + "Topping 1: Extra Cheese\n"
+                            + "Topping 2: Chilli");
                 
         Pizza pizza = new Pizza(
                             Size.MEDIUM,
@@ -34,9 +34,9 @@ public class TestPizza {
         System.out.println("--------------EDIT PIZZA--------------");
         System.out.println("======================================");
         System.out.println("Change the following using get/set methods:\n"
-                + "Size: Large\n"
-                + "Crust: Stuffed\n"
-                + "Topping 2: Pepperoni");
+                            + "Size: Large\n"
+                            + "Crust: Stuffed\n"
+                            + "Topping 2: Pepperoni");
         pizza.setSize(Size.LARGE);
         pizza.setCrust(Crust.STUFFED);
         pizza.setTopping2(Topping.PEPPERONI);

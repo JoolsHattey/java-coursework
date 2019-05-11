@@ -21,12 +21,12 @@ public class TestOrder {
         
         //1st Pizza
         System.out.println("Pizza 1 Creation and add to order:");
-        System.out.println("Pizza Creating With Following Data:\n"
-                + "Size: Medium\n"
-                + "Crust: Thin\n"
-                + "Sauce: Pesto\n"
-                + "Topping 1: Extra Cheese\n"
-                + "Topping 2: Chilli");
+        System.out.println("Creating Pizza With Following Data:\n"
+                            + "Size: Medium\n"
+                            + "Crust: Thin\n"
+                            + "Sauce: Pesto\n"
+                            + "Topping 1: Extra Cheese\n"
+                            + "Topping 2: Chilli");
         System.out.println("\n");
         
         Pizza pizza1 = new Pizza(
@@ -39,12 +39,12 @@ public class TestOrder {
         
         //2nd Pizza
         System.out.println("Pizza 2 Creation and add to order:");
-        System.out.println("Pizza Creating With Following Data:\n"
-                + "Size: Medium\n"
-                + "Crust: Stuffed\n"
-                + "Sauce: Pesto\n"
-                + "Topping 1: Olive\n"
-                + "Topping 2: Onion");
+        System.out.println("Creating Pizza With Following Data:\n"
+                            + "Size: Medium\n"
+                            + "Crust: Stuffed\n"
+                            + "Sauce: Pesto\n"
+                            + "Topping 1: Olive\n"
+                            + "Topping 2: Onion");
         System.out.println("\n");
         
         Pizza pizza2 = new Pizza(
@@ -57,12 +57,12 @@ public class TestOrder {
         
         //3rd Pizza
         System.out.println("Pizza 3 Creation and add to order:");
-        System.out.println("Pizza Creating With Following Data:\n"
-                + "Size: Small\n"
-                + "Crust: Thin\n"
-                + "Sauce: Pesto\n"
-                + "Topping 1: Chilli\n"
-                + "Topping 2: Pepperoni");
+        System.out.println("Creating Pizza With Following Data:\n"
+                            + "Size: Small\n"
+                            + "Crust: Thin\n"
+                            + "Sauce: Pesto\n"
+                            + "Topping 1: Chilli\n"
+                            + "Topping 2: Pepperoni");
         System.out.println("\n");
         
         Pizza pizza3 = new Pizza(
@@ -75,12 +75,12 @@ public class TestOrder {
         
         //4th Pizza
         System.out.println("Pizza 4 Creation and add to order:");
-        System.out.println("Pizza Creating With Following Data:\n"
-                + "Size: Small\n"
-                + "Crust: Thin\n"
-                + "Sauce: Pesto\n"
-                + "Topping 1: Olive\n"
-                + "Topping 2: Olive");
+        System.out.println("Creating Pizza With Following Data:\n"
+                            + "Size: Small\n"
+                            + "Crust: Thin\n"
+                            + "Sauce: Pesto\n"
+                            + "Topping 1: Olive\n"
+                            + "Topping 2: Olive");
         System.out.println("\n");
         
         Pizza pizza4 = new Pizza(
@@ -108,9 +108,9 @@ public class TestOrder {
         System.out.println("----TESTING EDIT PIZZA-----");
         System.out.println("Editing Pizza 1");
         System.out.println("Change the following using get/set methods:\n"
-                + "Size: Large\n"
-                + "Crust: Stuffed\n"
-                + "Topping 2: Pepperoni");
+                            + "Size: Large\n"
+                            + "Crust: Stuffed\n"
+                            + "Topping 2: Pepperoni");
         
         order.selectPizza(0);
         order.setPizzaSize(Size.LARGE);
